@@ -1,0 +1,17 @@
+{
+  "name": "curriculo",
+  "version": "1.0.0",
+  "description": "Meu Curriculo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rômulo Alves",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  },
+  "dependencies": {
+    "gulp-sass": "^4.0.2"
+  }
+}
