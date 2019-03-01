@@ -1,0 +1,164 @@
+@import 'config';
+@import 'menu';
+* {
+   box-sizing: border-box;
+}
+body {
+   @include background;
+   background: $my-color-21;
+   color: $my-color-3;
+   height: 100%;
+   margin: 0;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   line-height: 1;//tamanho da linha
+}
+// Text
+h1, h2, h3 {
+   margin: 0;
+   font-weight: 300;
+   &.lg-heading {
+      line-height: 1.5;
+      font-size:5rem; 
+   }
+   &.sm-heading {
+      margin-top: 2rem; 
+      margin-bottom: 2rem;
+      padding: 0.5rem 2rem;
+      background: rgba(lighten($my-color-1, 10), 0.5);
+   }
+}
+a {
+   color: $my-color-14;
+   text-decoration: none; 
+}
+header {
+   position: fixed;
+   z-index: 2;
+   width: 100%;
+}
+// Text Hestilizado
+.text-secondary {
+   color: $my-color-19;
+}
+// Main Universal
+main {
+   padding: 4rem;
+   min-height: calc(100vh - 60px);
+   // Home Estlizado
+   &#home {
+      overflow: hidden;
+      padding: 1rem 4rem;   
+      .lg-heading {
+         margin-top: 20vh; 
+      }
+      // Icons
+      .icons {
+         margin-top: 3rem;
+         a {
+            padding: 0.4rem;
+            @include easeOut;
+            color: #fff;
+            &:hover {
+               color: $my-color-19;
+            }
+         }
+      }
+   }
+   &#about {
+      padding: 5rem 3rem ;
+   }
+   &#summary {
+      .banner {
+         max-width: 700px;
+         background: lighten($my-color-1, 10);
+         border-radius: 2%;
+         border: solid 3px $my-color-19; 
+         margin: 50px auto 50px auto;
+         margin-bottom: 1rem; 
+      }
+      p {
+         padding:0 1rem; 
+         font-weight: 200; 
+         font-size: 1.3rem;
+         line-height: 1.5; 
+      }
+   }
+}
+// Sobre Min
+.about-info {
+   display: grid;
+   grid-gap: 25px;
+   grid-template-areas: 'bioimage bio bio'
+   'job1 job2 job3';
+   grid-template-columns: repeat(3, 1fr);
+   h3 { 
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 1rem 0;
+   }
+   hr {
+      border: $my-color-19 1px solid ;
+   }
+   .bio-image {
+      grid-area: bioimage;
+      margin: auto;
+      border-radius: 50%;
+      border: $my-color-19 3px solid;
+   }
+   .bio {
+      font-weight: 200; 
+      grid-area: bio;
+      font-size: 1.4rem;
+      line-height: 1.5; 
+   }
+   .job-1 {
+      grid-area: job1;
+      h3{
+         padding:0.5rem 0.5rem; 
+      }
+   }
+   .job-2 {
+      grid-area: job2;
+      h3{
+         padding:0.5rem 0.5rem; 
+      }
+   }
+   .job-3 {
+      grid-area: job3;
+      h3{
+         padding:0.5rem 0.5rem; 
+      }
+   }
+   .job { 
+      background: lighten($my-color-1, 10);
+      border-radius: 2%;
+      border: solid 3px $my-color-19; 
+   }
+}
+//Contato
+.boxes {
+   padding:2rem; 
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   align-items: center;
+   div {
+      font-size: 2rem;
+      border: 3px $my-color-19 solid;
+      padding: 0.5rem 2rem;
+      margin-bottom: 3rem;
+      @include easeOut;
+      &:hover {
+         padding: 0.5rem 1rem;
+         background: $my-color-11;  
+      }
+   }
+}
+// Footer
+#main-footer {
+   text-align: center;
+   padding: 1rem;
+   background: darken($my-color-1, 10);
+   height: auto;
+}
+@import 'mobile';

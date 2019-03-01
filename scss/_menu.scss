@@ -1,0 +1,122 @@
+// Menu Button
+.menu-btn {
+   position: absolute;
+   z-index: 3;
+   right: 35px;
+   top: 35px;
+   cursor: pointer;
+   @include easeOutmenu;
+   // Btn Hamburque tamanho
+   .btn-line {
+      width: 28px;
+      height: 3px;
+      margin: 0 0 5px 0;
+      background: $my-color-14;
+      @include easeOutmenu;
+      // @include easeOut;
+   }
+   // Rotação do Menu Hamburquer
+   &.close {
+      transform: rotate(180deg);
+      .btn-line {
+         // Linha 1 Rotação
+         &:nth-child(1) {
+            background: $my-color-14;
+            transform: rotate(45deg) translate(5px, 5px);
+         }
+         // Linha 2 Rotação
+         &:nth-child(2) {
+            opacity: 0;
+         }
+         // Linha 3 Rotação
+         &:nth-child(3) {
+            background: $my-color-14;
+            transform: rotate(-45deg) translate(7px, -6px);
+         }
+      }
+   }
+}
+// Menu Overlay
+.menu {
+   position: fixed;
+   top: 0;
+   width: 100%;
+   opacity: 0.9;
+   visibility: hidden;
+   &.show {
+      visibility: visible;
+   }
+   // Menu Estilizado
+   &-branding,
+   &-nav {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      width: 50%;
+      height: 100vh;
+      overflow: hidden;
+   }
+   &-nav {
+      //line-height: 2; 
+      margin: 0;
+      padding: 0;
+      background: darken($my-color-1, 10);
+      list-style: none;
+      // Slide Top
+      transform: translate3d(0, -100%, 0);
+      @include easeOut;
+      &.show {
+         transform: translate3d(0, 0, 0);
+      }
+   }
+   &-branding {
+      background: $my-color-1;
+      // Slide Botton
+      transform: translate3d(0, 100%, 0);
+      @include easeOut;
+      &.show {
+         transform: translate3d(0, 0, 0);
+      }
+      .portrait {
+         width: 250px;
+         height: 250px;
+         background: url('../img/retratoromulo1.jpg');
+         border-radius: 50%;
+         border: solid 3px $my-color-14;
+      }
+   }
+   .nav-item {
+      // Slide Right
+      transform: translate3d(600px, 0, 0);
+      @include easeOut;
+      &.show {
+         transform: translate3d(0, 0, 0);
+      }
+      &.current > a {
+         color: $my-color-9;
+      }
+   }
+   // Links
+   .nav-link {
+      display: inline-block;
+      position: relative;
+      font-size: 30px;
+      text-transform: uppercase;
+      padding: 1rem 0;
+      font-weight: 270;
+      color: $my-color-14;
+      text-decoration: none;
+      @include easeOutmenu;
+      &:hover{
+         color:$my-color-4;
+      }
+   }
+}
+// Delay do Menu Right
+@for $x from 1 through 4 {
+   .nav-item:nth-child(#{$x}) {
+      transition-delay: $x * 0.2s;
+   }
+}
